@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Science with Python</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="62872aea-6a3e-4bc9-aab6-583ab28d5d43" class="page sans"><header><h1 class="page-title">Data Science with Python</h1></header><div class="page-body"><h1 id="bfc10cf3-a80a-4a78-9d28-10ad87758592" class="">Basic of SQL</h1><p id="53bd30cf-62ee-4bf4-9c13-6c261b6bf6ad" class="">ERD Entity Representation Diagram  is a typical diagram for representation for expressing relation ship between different tables or sheet of a database.</p><p id="1b487ca6-acb5-4c66-96a7-30ef031c7588" class="">These diagrams help you visualize the data you are analyzing including:</p><ol type="1" id="2e9214e2-9658-4327-923a-3a106229483b" class="numbered-list" start="1"><li>The names of the tables.</li></ol><ol type="1" id="bd04200a-16f6-4460-a907-1a1f67617b38" class="numbered-list" start="2"><li>The columns in each table.</li></ol><ol type="1" id="746192df-4083-4155-8b27-c7fb491d4ee7" class="numbered-list" start="3"><li>The way the tables work together.</li></ol><p id="f31bcd50-ec3a-47d5-b50a-5a1141350130" class="">/</p><p id="b205e8fa-586a-44a3-99d1-14252b5bc8cb" class="">
+</p><p id="cd86a343-4c9e-4a3f-8924-022ba0e5c079" class="">There are some major advantages to using <strong>traditional relational databases,</strong> which we interact with using SQL. The five most apparent are:</p><ul id="22b933b0-5493-4a5d-b8dd-4f8368c58bdf" class="bulleted-list"><li style="list-style-type:disc">SQL is easy to understand.</li></ul><ul id="78450f5d-96d3-479a-acea-d3ac1e8baa96" class="bulleted-list"><li style="list-style-type:disc">Traditional databases allow us to access data directly.</li></ul><ul id="e0720ce3-02a9-4c54-b0a8-2d0a476d9e57" class="bulleted-list"><li style="list-style-type:disc">Traditional databases allow us to audit and replicate our data.</li></ul><ul id="bcfdee44-e8f8-4cdd-9c4c-de886b08879d" class="bulleted-list"><li style="list-style-type:disc">SQL is a great tool for analyzing multiple tables at once.</li></ul><ul id="69a539ef-ddcd-4dd5-807a-a43bb61981d8" class="bulleted-list"><li style="list-style-type:disc">SQL allows you to analyze more complex questions than dashboard tools like Google Analytics.</li></ul><h2 id="1046147d-a5b6-450b-ba1b-dde9762d4009" class=""><strong>SQL vs. NoSQL</strong></h2><p id="b536a323-05e0-460b-9b06-1f02a218dd4e" class="">You may have heard of NoSQL, which stands for not only SQL. Databases using NoSQL allow you to write code that interacts with the data a bit differently than what we will do in this course. These NoSQL environments tend to be particularly popular for web-based data, but less popular for data that lives in spreadsheets the way we have been analyzing data up to this point. One of the most popular NoSQL languages is called <a href="https://www.mongodb.com/">MongoDB</a>. Udacity has a full course on MongoDB that you can take for free <a href="https://www.udacity.com/course/data-wrangling-with-mongodb--ud032">here</a>, but these will not be a focus of this program.</p><p id="f7c2574a-e28b-446e-b951-c32868a83599" class="">
+</p><p id="e84bfde8-0a02-4612-9418-ded195aa3d96" class=""><strong><strong>Why Businesses Like Databases</strong></strong>
+1. <strong>Data integrity is ensured</strong> - only the data you want to be entered is entered, and only certain users are able to enter data into the database.
+1. <strong>Data can be accessed quickly</strong> - SQL allows you to obtain results very quickly from the data stored in a database. Code can be optimized to quickly pull results.
+1. <strong>Data is easily shared</strong> - multiple individuals can access data stored in a database, and the data is the same for all users allowing for consistent results for anyone with access to your database.</p><p id="e5127306-73d8-41b4-9b07-1e8005963c5e" class="">
+</p><p id="686e880e-e11d-4c90-a2e6-390282f6872e" class="">Sql Queries are not case sensitive</p><p id="ac344881-543b-4df9-b269-f2c65a7599de" class="">
+</p><p id="508e05b0-0df3-4dcd-a51c-a328af490bf0" class="">Statements:</p><ol type="1" id="9a0645c2-d88a-40b5-9a7d-71cdc27405fb" class="numbered-list" start="1"><li>Select: To choose the columns</li></ol><ol type="1" id="a52a95a4-162d-4de8-a0e0-365bd1edc418" class="numbered-list" start="2"><li>FROM: To choose tables</li></ol><ol type="1" id="8986eaf3-434b-416d-8e41-5fec3c512bb7" class="numbered-list" start="3"><li>LIMIT: It is useful when you want  to see just the first few rows of a table </li></ol><pre id="f28a180f-18ee-4f84-be45-35819abe4e23" class="code"><code>Select * from orders limit 10;</code></pre><ol type="1" id="11b5687a-01b6-41fb-91fa-c00577231c19" class="numbered-list" start="4"><li>ORDER BY: it allow us to sort results using the data in any column.</li></ol><p id="3ef9f90e-0231-4bc8-8016-89f1d9549a7c" class="">DESC can be added after the columns in your ORDER BY statement to sort in descending order.( as default it is acsending)</p><pre id="13dd5bbe-6dc2-4791-9ab0-c2e4768eabfa" class="code code-wrap"><code>SELECT *
+FROM orders
+ORDERBY occurred_at
+LIMIT 1000;</code></pre><ol type="1" id="d52dbc8e-d14c-4c14-a09c-20ab1a4ab775" class="numbered-list" start="5"><li>WHERE it is a filtering statement. it can display subsets of tables based on the condition that must be met.<p id="1a618867-c05c-41d8-8933-5d53eba93b97" class="">Common symbols used in <strong>WHERE</strong> statements include:</p><ol type="1" id="8b3e984e-11b4-40f9-a1f0-542a54d4bcae" class="numbered-list" start="1"><li><code>&gt;</code> (greater than)</li></ol><ol type="1" id="d169bdb1-a91e-481f-a96f-a674793b90da" class="numbered-list" start="2"><li><code>&lt;</code> (less than)</li></ol><ol type="1" id="a936e956-8d30-4203-b511-f4f9954eaaec" class="numbered-list" start="3"><li><code>&gt;=</code> (greater than or equal to)</li></ol><ol type="1" id="113c2e91-cfda-442e-9adb-070374cd26cf" class="numbered-list" start="4"><li><code>&lt;=</code> (less than or equal to)</li></ol><ol type="1" id="f2a3ad62-c86d-4318-9721-2f4f838d6cc9" class="numbered-list" start="5"><li><code>=</code> (equal to)</li></ol><ol type="1" id="91ea67d3-2f4e-40a9-b140-1c362c89d236" class="numbered-list" start="6"><li><code>!=</code> (not equal to)</li></ol><p id="0c550218-4374-4dd8-964e-95aad564545f" class="">WHERE can be used with non numeric data also.Commonly when we are using <strong>WHERE </strong>with non-numeric data fields, we use the <strong>LIKE</strong>, <strong>NOT</strong>, or <strong>IN</strong>
+ operators.</p><pre id="e21f7565-07f7-4530-8098-426dfa4ddd49" class="code"><code>SELECT name, website, primary_poc
+FROM accounts
+WHERE name = &#x27;Exxon Mobil&#x27;;</code></pre><p id="92e4ed08-b14c-4174-9034-70da58e448ad" class="">
+</p></li></ol><p id="eda2b285-6e5b-493c-96d7-785c2b6ddc22" class="">Arithmetic Operators</p><p id="0494a18e-4c31-42a4-8462-587c2620a72a" class="">Derived columns are columns derived from combination of existing columns. usually to give name to new column we use AS keyword</p><p id="a2d5eaff-3c77-4c9f-bb93-6d420568e123" class="">If you are deriving the new column from existing columns using a mathematical expression, then these familiar mathematical operators will be useful:</p><ol type="1" id="876fc8b9-cda7-4b86-b621-2489275ff025" class="numbered-list" start="1"><li><code></code> (Multiplication)</li></ol><ol type="1" id="e75ff621-9fbb-4a7f-81ed-9640fd2d2a23" class="numbered-list" start="2"><li><code>+</code> (Addition)</li></ol><ol type="1" id="e2fc8e83-d2a1-4146-b7d3-bc72f57bce44" class="numbered-list" start="3"><li><code></code> (Subtraction)</li></ol><ol type="1" id="6bb90a09-73dc-4db9-a5c3-dbd01128f24e" class="numbered-list" start="4"><li><code>/</code> (Division)</li></ol><p id="3ae710c0-ab5d-45ba-96ad-fa85d013653a" class="">Consider this example:</p><pre id="6f0b4562-af38-492d-87f0-99bc669572de" class="code code-wrap"><code>SELECT id, (standard_amt_usd/total_amt_usd)*100 AS std_percent, total_amt_usd
+FROM orders
+LIMIT 10;</code></pre><p id="bf9418eb-e63a-4f40-92dc-2cd92d9aa0b0" class="">Logical Operators</p><p id="84378bb9-1274-41fa-bb1e-b82857b3f551" class=""><strong>Logical Operators</strong> include:</p><ol type="1" id="bea13ab2-735b-46bb-be69-284d6fd13f28" class="numbered-list" start="1"><li><strong>LIKE</strong> This allows you to perform operations similar to using <strong>WHERE</strong> and <code>=</code>, but for cases when you might <strong>not</strong> know <strong>exactly</strong> what you are looking for.</li></ol><ol type="1" id="fd2c3412-602d-41f2-bb1a-e9b61d749224" class="numbered-list" start="2"><li><strong>IN</strong> This allows you to perform operations similar to using <strong>WHERE</strong> and <code>=</code>, but for more than one condition.</li></ol><ol type="1" id="d5592bcc-9a82-4c3e-94d8-8e027ca55284" class="numbered-list" start="3"><li><strong>NOT</strong> This is used with <strong>IN</strong> and <strong>LIKE</strong> to select all of the rows <strong>NOT LIKE</strong> or <strong>NOT IN</strong> a certain condition.</li></ol><ol type="1" id="f758d5c2-b956-465b-845a-b71038878f85" class="numbered-list" start="4"><li><strong>AND &amp; BETWEEN</strong> These allow you to combine operations where all combined conditions must be true.</li></ol><ol type="1" id="b648663c-40aa-4e8f-8807-60164c7bdc89" class="numbered-list" start="5"><li><strong>OR</strong> This allows you to combine operations where at least one of the combined conditions must be true.</li></ol><p id="f71a2f01-f394-48aa-9c71-79295e792ad8" class="">
+</p></div></article></body></html>
